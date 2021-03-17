@@ -1,11 +1,13 @@
-import { parser, IParserOptions } from './main.ts';
+import { Chain, IParserOptions } from './chain.ts';
 import { readTextFile } from './file.ts';
 
 const option: IParserOptions = {
   separatorReg: /\.|!|\?/g,
   contentReg: /[ёЁа-яА-Я]+|,/g,
-  corpusSize: 1,
+  windowSize: 3,
 }
 
 const text = readTextFile('./text/test.txt');
-console.log(parser(option)(text));
+const chain = new Chain(option);
+chain.add(text);
+chain.log();
