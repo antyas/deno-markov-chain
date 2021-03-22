@@ -1,8 +1,8 @@
 import { Chain } from "./chain.ts";
 
 export type ParserOptions = {
-  separatorReg: RegExp,
-  contentReg: RegExp,
+  separators: RegExp,
+  content: RegExp,
   windowSize: number,
 }
 
@@ -15,14 +15,14 @@ export class Parser {
 
   private split(text: string): string[] {
     return text
-      .replace(this.options.separatorReg, '$&#sep#')
+      .replace(this.options.separators, '$&#sep#')
       .replace('\n', '')
       .toLowerCase()
       .split('#sep#');
   }
 
   private parseLine(chain: Chain, line: string): Chain {
-    const rawList = line.match(this.options.contentReg) || [];
+    const rawList = line.match(this.options.content) || [];
 
     if (rawList.length) {
       const list = ['#start#', ...rawList, '#end#'];

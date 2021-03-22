@@ -2,7 +2,7 @@ import { Chain } from "./chain.ts";
 
 export type BuilderOptions = {
   size: number,
-  marks: string[],
+  marks: RegExp,
 }
 
 export class Builder {
@@ -53,7 +53,7 @@ export class Builder {
         }
       }
 
-      line += this.options.marks.includes(word) ? word : ` ${word}`;
+      line += this.options.marks.test(word) ? word : ` ${word}`;
     }
     
     return this.lineToNormal(line);
