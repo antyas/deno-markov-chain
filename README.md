@@ -1,8 +1,12 @@
 # deno-markov-chain
 
-Example
-```
-import { Parser, Builder } from '../deno-markov-chain/mod.ts';
+**What is this library for?** 
+To create a fun text generator or for create chatbots.
+
+## Example
+
+```ts
+import { Parser, Builder } from "https://deno.land/x/markov-chain/mod.ts";
 
 const parser = new Parser({
   // A regular expression for characters separating sentences
@@ -26,3 +30,12 @@ const builder = new Builder(chain, {
 
 console.log(builder.build());
 ```
+
+## Roadmap
+
+- [x] Basic parser and builder
+- [ ] Advanced text creation options
+  - [ ] Selecting the text theme
+  - [ ] Selecting the text markup style (dialog, poetry, etc)
+- [ ] Creating a bidirectional chain
+- [ ] More user-friendly library interface
