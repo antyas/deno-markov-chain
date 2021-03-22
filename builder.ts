@@ -14,6 +14,11 @@ export class Builder {
     this.options = options;
   }
 
+  private lineToNormal(rawLine: string) {
+    const string = rawLine.replace(/#sep#|#end#/g, '').trim();
+    return string.slice(0, 1).toUpperCase() + string.slice(1);
+  }
+
   private random(max: number) {
     return Math.floor(Math.random() * max);
   }
@@ -51,14 +56,14 @@ export class Builder {
       line += this.options.marks.includes(word) ? word : ` ${word}`;
     }
     
-    return line;
+    return this.lineToNormal(line);
   }
 
   build() {
     let text = '';
 
     for (let i = 0; i < this.options.size; i+=1) {
-      text += this.createLine();
+      text += this.createLine() + ' ';
     }
 
     return text;
