@@ -39,3 +39,4 @@ console.log(builder.build());
   - [ ] Selecting the text markup style (dialog, poetry, etc)
 - [ ] Creating a bidirectional chain
 - [ ] More user-friendly library interface
+- [ ] Usage examples
