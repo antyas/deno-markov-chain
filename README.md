@@ -6,7 +6,7 @@ To create a fun text generator or for create chatbots.
 ## Example
 
 ```ts
-import { Parser, Builder } from "https://deno.land/x/markov-chain/mod.ts";
+import { Parser, Builder } from "https://deno.land/x/markov_chain/mod.ts";
 
 const parser = new Parser({
   // A regular expression for characters separating sentences
