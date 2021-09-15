@@ -15,6 +15,7 @@ export class Parser {
 
   private split(text: string): string[] {
     return text
+      .replace(#sep#, '.') // for manually set separators
       .replace(this.options.separators, '$&#sep#')
       .replace('\n', '')
       .toLowerCase()
