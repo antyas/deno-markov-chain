@@ -15,9 +15,9 @@ export class Parser {
 
   private split(text: string): string[] {
     return text
-      .replace(#sep#, '.') // for manually set separators
-      .replace(this.options.separators, '$&#sep#')
-      .replace('\n', '')
+      .replaceAll('#sep#', '.')
+      .replaceAll(this.options.separators, '$&#sep#')
+      .replaceAll('\n', '')
       .toLowerCase()
       .split('#sep#');
   }
